@@ -16,8 +16,6 @@ var connectionString = $"Data Source={dbPath}";
 builder.Services.AddSingleton(new BookRepository(connectionString));
 builder.Services.AddSingleton(new QuoteRepository(connectionString));
 
-builder.Services.AddOpenApi();
-
 builder.Services.AddAuthorization();
 
 builder.Services.AddCors(options =>
@@ -57,11 +55,6 @@ app.UseCors("AllowFrontend");
 
 app.UseAuthentication();
 app.UseAuthorization();
-
-if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
-{
-    app.MapOpenApi();
-}
 
 
 /* app.UseHttpsRedirection(); */
