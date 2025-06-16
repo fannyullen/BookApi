@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\fanny\\OneDrive\\Skrivbord\\TheBookApp\\BookAPI\\Backend\\BookApi.csproj": {}
+    "C:\\Users\\fanny\\OneDrive\\Skrivbord\\TheBookApp\\Backend\\BookApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\fanny\\OneDrive\\Skrivbord\\TheBookApp\\BookAPI\\Backend\\BookApi.csproj": {
+    "C:\\Users\\fanny\\OneDrive\\Skrivbord\\TheBookApp\\Backend\\BookApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\fanny\\OneDrive\\Skrivbord\\TheBookApp\\BookAPI\\Backend\\BookApi.csproj",
+        "projectUniqueName": "C:\\Users\\fanny\\OneDrive\\Skrivbord\\TheBookApp\\Backend\\BookApi.csproj",
         "projectName": "BookApi",
-        "projectPath": "C:\\Users\\fanny\\OneDrive\\Skrivbord\\TheBookApp\\BookAPI\\Backend\\BookApi.csproj",
+        "projectPath": "C:\\Users\\fanny\\OneDrive\\Skrivbord\\TheBookApp\\Backend\\BookApi.csproj",
         "packagesPath": "C:\\Users\\fanny\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\fanny\\OneDrive\\Skrivbord\\TheBookApp\\BookAPI\\Backend\\obj\\",
+        "outputPath": "C:\\Users\\fanny\\OneDrive\\Skrivbord\\TheBookApp\\Backend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\fanny\\AppData\\Roaming\\NuGet\\NuGet.Config"
