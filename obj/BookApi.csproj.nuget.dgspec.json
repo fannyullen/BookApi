@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Workspace\\BookApp\\Api\\BookApi\\BookApi.csproj": {}
+    "C:\\Workspace\\BookApp\\BookApi\\BookApi.csproj": {}
   },
   "projects": {
-    "C:\\Workspace\\BookApp\\Api\\BookApi\\BookApi.csproj": {
+    "C:\\Workspace\\BookApp\\BookApi\\BookApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Workspace\\BookApp\\Api\\BookApi\\BookApi.csproj",
+        "projectUniqueName": "C:\\Workspace\\BookApp\\BookApi\\BookApi.csproj",
         "projectName": "BookApi",
-        "projectPath": "C:\\Workspace\\BookApp\\Api\\BookApi\\BookApi.csproj",
+        "projectPath": "C:\\Workspace\\BookApp\\BookApi\\BookApi.csproj",
         "packagesPath": "C:\\Users\\fanny\\.nuget\\packages\\",
-        "outputPath": "C:\\Workspace\\BookApp\\Api\\BookApi\\obj\\",
+        "outputPath": "C:\\Workspace\\BookApp\\BookApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\fanny\\AppData\\Roaming\\NuGet\\NuGet.Config"

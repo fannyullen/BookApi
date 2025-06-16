@@ -10,7 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 var dbPath = Path.Combine(Directory.GetCurrentDirectory(), "db", "books.db");
 
-Console.WriteLine("➡️  Använder databasfil: " + dbPath);
+Console.WriteLine("Använder databasfil: " + dbPath);
 var connectionString = $"Data Source={dbPath}";
 
 builder.Services.AddSingleton(new BookRepository(connectionString));
