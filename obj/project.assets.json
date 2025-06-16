@@ -742,11 +742,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\fanny\\OneDrive\\Skrivbord\\TheBookApp\\Backend\\BookApi.csproj",
+      "projectUniqueName": "C:\\Users\\fanny\\OneDrive\\Skrivbord\\TheBookApp\\BookAPI\\Backend\\BookApi.csproj",
       "projectName": "BookApi",
-      "projectPath": "C:\\Users\\fanny\\OneDrive\\Skrivbord\\TheBookApp\\Backend\\BookApi.csproj",
+      "projectPath": "C:\\Users\\fanny\\OneDrive\\Skrivbord\\TheBookApp\\BookAPI\\Backend\\BookApi.csproj",
       "packagesPath": "C:\\Users\\fanny\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\fanny\\OneDrive\\Skrivbord\\TheBookApp\\Backend\\obj\\",
+      "outputPath": "C:\\Users\\fanny\\OneDrive\\Skrivbord\\TheBookApp\\BookAPI\\Backend\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\fanny\\AppData\\Roaming\\NuGet\\NuGet.Config"

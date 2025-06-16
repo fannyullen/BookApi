@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "hLcBKbAGFi4=",
+  "dgSpecHash": "a1RwagJFi80=",
   "success": true,
-  "projectFilePath": "C:\\Users\\fanny\\OneDrive\\Skrivbord\\TheBookApp\\Backend\\BookApi.csproj",
+  "projectFilePath": "C:\\Users\\fanny\\OneDrive\\Skrivbord\\TheBookApp\\BookAPI\\Backend\\BookApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\fanny\\.nuget\\packages\\dapper\\2.1.66\\dapper.2.1.66.nupkg.sha512",
     "C:\\Users\\fanny\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\9.0.5\\microsoft.aspnetcore.authentication.jwtbearer.9.0.5.nupkg.sha512",
