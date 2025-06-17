@@ -18,11 +18,21 @@ builder.Services.AddSingleton(new QuoteRepository(connectionString));
 
 builder.Services.AddAuthorization();
 
-builder.Services.AddCors(options =>
+/* builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend",
         policy => policy
-            .WithOrigins("http://localhost:4200")
+            .WithOrigins("https://din-frontend.netlify.app")
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+    );
+}); */
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend", policy =>
+        policy
+            .AllowAnyOrigin() // Tillfälligt! Byt till Netflify-url som ovan med WithOrigins()
             .AllowAnyHeader()
             .AllowAnyMethod()
     );
@@ -148,6 +158,9 @@ app.MapPost("/api/login", (LoginRequest request) =>
     return Results.Ok(new { token = tokenString });
 });
 
+app.MapGet("/", () => "Book API is running!");
+
 app.Run();
 
 record LoginRequest(string Username, string Password);
+
