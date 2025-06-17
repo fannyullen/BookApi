@@ -30,7 +30,7 @@ builder.Services.AddAuthorization();
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowFrontend", policy =>
+    options.AddPolicy("AllowAll", policy => // Temporärt, but till AllowFrontend
         policy
             .AllowAnyOrigin() // Tillfälligt! Byt till Netflify-url som ovan med WithOrigins()
             .AllowAnyHeader()
@@ -61,13 +61,13 @@ builder.Services.AddAuthentication(options =>
 
 var app = builder.Build();
 
-app.UseCors("AllowFrontend");
+app.UseCors("AllowAll"); // Temporärt, but till AllowFrontend
 
 app.UseAuthentication();
 app.UseAuthorization();
 
 
-/* app.UseHttpsRedirection(); */
+app.UseHttpsRedirection();
 
 app.MapGet("/api/books", (BookRepository repo) =>
 {
