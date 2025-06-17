@@ -30,9 +30,9 @@ builder.Services.AddAuthorization();
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAll", policy => // Temporärt, but till AllowFrontend
+    options.AddPolicy("AllowFrontend", policy =>
         policy
-            .AllowAnyOrigin() // Tillfälligt! Byt till Netflify-url som ovan med WithOrigins()
+            .WithOrigins("https://iridescent-daifuku-51e7ce.netlify.app")
             .AllowAnyHeader()
             .AllowAnyMethod()
     );
@@ -61,7 +61,7 @@ builder.Services.AddAuthentication(options =>
 
 var app = builder.Build();
 
-app.UseCors("AllowAll"); // Temporärt, but till AllowFrontend
+app.UseCors("AllowFrontend");
 
 app.UseAuthentication();
 app.UseAuthorization();
