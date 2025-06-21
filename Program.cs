@@ -155,6 +155,28 @@ app.MapPost("/api/register", (User user, UserRepository repo) =>
     return Results.Created($"/api/users/{id}", user);
 });
 
+// Get all users
+app.MapGet("/api/users", (UserRepository repo) =>
+{
+    return Results.Ok(repo.GetAll());
+});
+
+// Get one user by ID
+app.MapGet("/api/users/{id}", (int id, UserRepository repo) =>
+{
+    var user = repo.GetById(id);
+    return user is not null ? Results.Ok(user) : Results.NotFound();
+});
+
+// Create a new user
+app.MapPost("/api/users", (User user, UserRepository repo) =>
+{
+    var newId = repo.Add(user);
+    user.Id = newId;
+    return Results.Created($"/api/users/{newId}", user);
+});
+
+
 app.MapGet("/", () => "Book API is running!");
 
 app.Run();

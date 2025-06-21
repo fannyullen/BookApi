@@ -36,4 +36,16 @@ public class UserRepository
         using var connection = CreateConnection();
         return connection.QueryFirstOrDefault<User>("SELECT * FROM users WHERE username = @username", new { username });
     }
+
+    public IEnumerable<User> GetAll()
+    {
+        using var connection = CreateConnection();
+        return connection.Query<User>("SELECT * FROM users");
+    }
+
+    public User? GetById(int id)
+    {
+        using var connection = CreateConnection();
+        return connection.QueryFirstOrDefault<User>("SELECT * FROM users WHERE id = @id", new { id });
+    }
 }
