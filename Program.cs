@@ -15,18 +15,9 @@ var connectionString = $"Data Source={dbPath}";
 
 builder.Services.AddSingleton(new BookRepository(connectionString));
 builder.Services.AddSingleton(new QuoteRepository(connectionString));
+builder.Services.AddSingleton(new UserRepository(connectionString));
 
 builder.Services.AddAuthorization();
-
-/* builder.Services.AddCors(options =>
-{
-    options.AddPolicy("AllowFrontend",
-        policy => policy
-            .WithOrigins("https://din-frontend.netlify.app")
-            .AllowAnyHeader()
-            .AllowAnyMethod()
-    );
-}); */
 
 builder.Services.AddCors(options =>
 {
@@ -132,16 +123,11 @@ app.MapDelete("/api/quotes/{id}", (int id, QuoteRepository repo) =>
 });
 
 
-var users = new List<(string Username, string Password)>
+// Login
+app.MapPost("/api/login", (LoginRequest request, UserRepository repo) =>
 {
-    ("user1", "password1"),
-    ("user2", "password2")
-};
-
-app.MapPost("/api/login", (LoginRequest request) =>
-{
-    var user = users.FirstOrDefault(u => u.Username == request.Username && u.Password == request.Password);
-    if (user == default) return Results.Unauthorized();
+    var user = repo.GetByUsernameAndPassword(request.Username, request.Password);
+    if (user is null) return Results.Unauthorized();
 
     var tokenHandler = new JwtSecurityTokenHandler();
     var tokenKey = Encoding.UTF8.GetBytes(key);
@@ -156,6 +142,17 @@ app.MapPost("/api/login", (LoginRequest request) =>
     var tokenString = tokenHandler.WriteToken(token);
 
     return Results.Ok(new { token = tokenString });
+});
+
+// Register
+app.MapPost("/api/register", (User user, UserRepository repo) =>
+{
+    var existing = repo.GetByUsername(user.Username);
+    if (existing != null) return Results.Conflict("Användarnamnet är redan taget.");
+
+    var id = repo.Add(user);
+    user.Id = id;
+    return Results.Created($"/api/users/{id}", user);
 });
 
 app.MapGet("/", () => "Book API is running!");
