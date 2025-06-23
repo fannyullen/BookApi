@@ -28,7 +28,7 @@ public class UserRepository
     {
         using var connection = CreateConnection();
         var sql = "INSERT INTO users (username, password) VALUES (@username, @password); SELECT last_insert_rowid();";
-        return connection.ExecuteScalar<int>(sql, user);
+        return connection.ExecuteScalar<int>(sql, new { username = user.Username, password = user.Password });
     }
 
     public User? GetByUsername(string username)

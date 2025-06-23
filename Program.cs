@@ -23,7 +23,10 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
         policy
-            .WithOrigins("https://iridescent-daifuku-51e7ce.netlify.app")
+            .WithOrigins(
+                "http://localhost:4200",
+                "https://iridescent-daifuku-51e7ce.netlify.app"
+            )
             .AllowAnyHeader()
             .AllowAnyMethod()
     );
@@ -53,12 +56,11 @@ builder.Services.AddAuthentication(options =>
 var app = builder.Build();
 
 app.UseCors("AllowFrontend");
-
 app.UseAuthentication();
 app.UseAuthorization();
 
 
-app.UseHttpsRedirection();
+/* app.UseHttpsRedirection(); */
 
 app.MapGet("/api/books", (BookRepository repo) =>
 {
@@ -147,6 +149,10 @@ app.MapPost("/api/login", (LoginRequest request, UserRepository repo) =>
 // Register
 app.MapPost("/api/register", (User user, UserRepository repo) =>
 {
+
+    if (string.IsNullOrEmpty(user.Username) || string.IsNullOrEmpty(user.Password))
+        return Results.BadRequest("Username och password måste anges.");
+
     var existing = repo.GetByUsername(user.Username);
     if (existing != null) return Results.Conflict("Användarnamnet är redan taget.");
 
